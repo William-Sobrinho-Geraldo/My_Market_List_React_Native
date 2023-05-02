@@ -1,10 +1,11 @@
-import React from 'react';
-import { FlatList, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, Text, StyleSheet, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
 import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
 export default function TelaDeItens({ itensDeExemplo }) {
+  
 
   return <>
     <FlatList style={estilos.flatList}
@@ -23,12 +24,21 @@ export default function TelaDeItens({ itensDeExemplo }) {
       }}
 
 
-      ListHeaderComponent={() => {
-        return <SafeAreaView >
-          <Text style={estilos.texto}>My market list</Text>
-        </SafeAreaView>
+      ListHeaderComponent = {() => {
+        const [text, onChangeText] = useState('');
+        return (
+        <SafeAreaView >
+          <Text style={estilos.texto}>My Market List</Text>
+          <TextInput
+            style={estilos.caixaDeTexto}
+            onChangeText={onChangeText}
+            value={text}
+            placeholder='Buscar Itens'
+          />
+        </SafeAreaView>);
       }
-      }
+    }
+
       ListFooterComponent={() => {
         return <SafeAreaView style={estilos.flatList} >
         </SafeAreaView>
@@ -39,11 +49,20 @@ export default function TelaDeItens({ itensDeExemplo }) {
 }
 
 const estilos = StyleSheet.create({
+  caixaDeTexto: {
+    borderRadius: 15,
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 8,
+  },
   texto: {
     fontSize: 24,
     fontWeight: "bold",
-    marginVertical: 16,
+    marginTop:16,
+    marginBottom: 8,
     textAlign: "center",
+    color: "#2e2e3c"
   },
   flatList: { paddingBottom: 24 },
   textoDoItem: {
