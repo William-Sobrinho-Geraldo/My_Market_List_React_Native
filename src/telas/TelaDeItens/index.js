@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { FlatList, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 import TopoTelaDeItens from './componentes/TopoTelaDeItens';
+import sampleItens from '../../mock/sampleItens';
 
 
 
-export default function TelaDeItens({ itensDeExemplo }) {
-
+export default function TelaDeItens() {
 
   return <>
     <FlatList style={estilos.flatList}
-      data={itensDeExemplo.lista}
+      data={sampleItens.itensDeExemplo.lista}
       keyExtractor={item => item.nome}
       numColumns={2}
       horizontal={false}

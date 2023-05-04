@@ -1,4 +1,4 @@
-var sampleItens = {
+const sampleItens = {
     itensDeExemplo: {
         titulo: "Itens da lista ",
         lista: [
