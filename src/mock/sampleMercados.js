@@ -7,8 +7,8 @@ const sampleMercados = {
         { nomeMercado: "Assaí" },
         { nomeMercado: "Super Market" },
         { nomeMercado: "Inter" },
-        { nomeMercado: "Pão de açucar" },
-        { nomeMercado: "Zona sul" },
+        { nomeMercado: "Pão de Açucar" },
+        { nomeMercado: "Zona Sul" },
         { nomeMercado: "Costa Azul" },
     ]
 }

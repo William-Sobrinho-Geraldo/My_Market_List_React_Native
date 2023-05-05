@@ -34,18 +34,7 @@ export default function AppRotas() {
             tabBarLabelStyle:{
                 fontSize:15,
             }
-            // tabBarIcon: ({ focused, color, size }) => {
-            //     let iconName; // = "playlist-add";
-            // //     //let Icon = <MaterialIcons name= "store-mall-directory"  size={35} color={"#C7C7C7"} />
-
-            //     if (route.name === "TelaDeItens") {
-            //         iconName = focused ? "playlist-add": "list";
-            // //         //Icon = < MaterialIcons name="playlist-add" size={35} color={"#C7C7C7"}/>
-            //     } else if (route.name === "TelaDeMercados") {
-            //         iconName = focused ? "store-mall-directory": "local-mall";
-            //     }
-            //     return <MaterialIcons name={iconName} size={35} color="#C7C7C7" />;
-            // },
+            
         })}>
             <Tab.Screen name="Mercados" component={TelaDeMercados} options={{
                 tabBarIcon: ({ color, focused }) => {
@@ -69,6 +58,4 @@ export default function AppRotas() {
         </Tab.Navigator>
     </NavigationContainer>
 }
-
-
 

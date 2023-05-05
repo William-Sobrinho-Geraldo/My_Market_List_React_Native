@@ -3,14 +3,60 @@ import { FlatList, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'reac
 import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 import TopoTelaDeItens from './componentes/TopoTelaDeItens';
 import sampleItens from '../../mock/sampleItens';
-
+import { useRoute } from "@react-navigation/native";
 
 
 export default function TelaDeItens() {
+  const route = useRoute();
+  const mercadoClicado = route.params;  //pegando o nome do mercado que foi clicado na TelaDeMercados
+    console.log("O mercado clicado foi:" , mercadoClicado ) 
+  var listaCerta = sampleItens.itensDeExemplo.lista
+  if(mercadoClicado === "Guanabara" ) { 
+    listaCerta=sampleItens.itensDeExemplo.listaGuanabara
+  } else if (mercadoClicado === "Prezunic") {
+    listaCerta=sampleItens.itensDeExemplo.listaPrezunic
+  } else if (mercadoClicado === "Extra") {
+    listaCerta=sampleItens.itensDeExemplo.listaExtra
+  } else if (mercadoClicado === "Assaí") {
+    listaCerta=sampleItens.itensDeExemplo.listaAssaí
+  } else if (mercadoClicado === "Super Market") {
+    listaCerta=sampleItens.itensDeExemplo.listaSupermarket
+  } else if (mercadoClicado === "Inter") {
+    listaCerta=sampleItens.itensDeExemplo.listaInter
+  } else if (mercadoClicado === "Pão de Açucar") {
+    listaCerta=sampleItens.itensDeExemplo.listaPaoDeAcucar
+  } else if (mercadoClicado === "Zona Sul") {
+    listaCerta=sampleItens.itensDeExemplo.listaZonaSul
+  } else if (mercadoClicado === "Costa Azul") {
+    listaCerta=sampleItens.itensDeExemplo.listaCostaAzul
+  }
+
+
+
+  // function determinandoListaDeItens(mercadoClicado) {
+  //   switch (mercadoClicado) {
+  //     case 'Guanabara':
+  //       listaCerta = sampleItens.itensDeExemplo.listaGuanabara
+  //     break;
+  //     case 'B':
+  //       // código a ser executado se o valor for igual a 'B'
+  //       break;
+  //     case 'C':
+  //       // código a ser executado se o valor for igual a 'C'
+  //       break;
+  //     default:
+  //       // código a ser executado se o valor não for igual a 'A', 'B' ou 'C'
+  //       break;
+  //   }
+  // }
+
+    
+
+
 
   return <>
     <FlatList style={estilos.flatList}
-      data={sampleItens.itensDeExemplo.lista}
+      data={listaCerta}
       keyExtractor={item => item.nome}
       numColumns={2}
       horizontal={false}

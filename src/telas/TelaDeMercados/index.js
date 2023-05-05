@@ -1,17 +1,23 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TopoTelaDeMercados from "./componentes/TopoTelaDeMercados";
+import { useNavigation } from "@react-navigation/native";
 
 import sampleMercados from "../../mock/sampleMercados";
+import sampleItens from "../../mock/sampleItens";
 
 
 export default function TelaDeMercados() {
+    const navigation = useNavigation();
     return <>
         <FlatList
             keyExtractor={item => item.nomeMercado}
             data={sampleMercados.listaDeMercados}
-            renderItem={({ item }) => {
-                return <TouchableOpacity style={estilos.ViewRenderItem} >
+            renderItem={({ item }) => { 
+                return <TouchableOpacity style={estilos.ViewRenderItem} onPress={() => {
+                    navigation.navigate('Itens', item.nomeMercado )
+                    // console.log(item.nomeMercado)
+                }}>
                     <Text style={estilos.TextRenderItem}>{item.nomeMercado}</Text>
                 </TouchableOpacity>
             }}
